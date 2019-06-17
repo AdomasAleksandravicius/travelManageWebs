@@ -1,7 +1,7 @@
 <!doctype html>
-<html>
+<html xmlns:th = "http://www.thymeleaf.org">
 <head>
-    <title>This is the title of the webpage!</title>
+    <title th:text ="${greeting}"></title>
 </head>
 <body>
 <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this

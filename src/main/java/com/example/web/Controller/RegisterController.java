@@ -18,11 +18,11 @@ public class RegisterController {
     @GetMapping("")
     public String index(HttpSession session){
         if(session.getAttribute("user") !=null ){
-            return "redirect:/countries";
+            return "/countries";
         }
         return "/register";
     }
-    @PostMapping
+    @PostMapping("")
     public String addUser(@RequestParam("email")String email,
                             @RequestParam("password") String password, HttpSession session){
         User user = new User(email,password);

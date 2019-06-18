@@ -1,0 +1,19 @@
+.index-body {
+    background: white;
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    text-align: center;
+}
+
+.index-image {
+    width: 100%;
+}
+
+.centered {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

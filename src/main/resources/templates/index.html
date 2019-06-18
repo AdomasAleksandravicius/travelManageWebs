@@ -1,10 +1,40 @@
-<!doctype html>
-<html xmlns:th = "http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text ="${greeting}"></title>
+    <title>Countries</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/layout.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/index.css}" type="text/css">
 </head>
 <body>
-<p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this
-    <strong>p</strong> tag and its contents.</p>
+<div class="wrapper row1">
+    <header id="header" class="clear">
+        <div id="hgroup">
+            <h1><a href="#">Travel Manager</a></h1>
+            <h2>Travel for free almost</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li class="last"><a href="#">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<!-- content -->
+<div class="index-body">
+    <img class="index-image" th:src="@{/images/home.jpg}">
+    <div class="centered">
+        <h1>Manage your travels with pleasure</h1>
+    </div>
+</div>
+<!-- Copyright -->
+<div class="wrapper row4">
+    <footer id="copyright" class="clear">
+        <p class="fl_left">Copyright &copy; 2019 - All Rights Reserved - <a href="#">Travel manager app</a></p>
+        <p class="fl_right"><a target="_blank" href="https://www.google.com/"
+                                           title="Travel Manager">Travel Manager</a></p>
+    </footer>
+</div>
 </body>
 </html>

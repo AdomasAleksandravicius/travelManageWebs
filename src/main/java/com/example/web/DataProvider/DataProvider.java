@@ -2,6 +2,7 @@ package com.example.web.DataProvider;
 
 import com.example.web.Model.City;
 import com.example.web.Model.Country;
+import com.example.web.Model.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,11 +14,13 @@ public class DataProvider {
     public static List<Country> countryList;
     public static  List<City> cityList;
     public static Map<String,Country> countryMap;
+    public static List<User> usersList;
 
     static {
         countryMap = new HashMap<>();
         countryList = new ArrayList<>();
         cityList = new ArrayList<>();
+        usersList = new ArrayList<>();
 
         //countryList = new ArrayList<>();
 
@@ -25,6 +28,9 @@ public class DataProvider {
 //        addItem(new Country(null,"Anglija","geras salis daug visko pamatyt galima,normaliai"),new City("hakamora"));
 //        addItem(new Country(null,"Rusija","geras salis daug visko pamatyt galima keliaut"),new City("hakamora"));
 //        addItem(country);
+
+        User user = new User("adomas","labas123");
+        usersList.add(user);
 
         Country australia = new Country(null,"Australia","daug visokiu zodziu apie sia sali", "australia.png");
         City viena = new City("Viena","kalnas, kepure,namas");
@@ -50,6 +56,10 @@ public class DataProvider {
         bulgaria.setCities(cityList);
         countryMap.put("5", bulgaria);
 
+    }
+
+    public static void addUser(User user){
+        usersList.add(user);
     }
 
     public static String getString(Country currentCountry){

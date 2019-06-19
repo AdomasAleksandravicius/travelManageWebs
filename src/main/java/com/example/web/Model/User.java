@@ -1,9 +1,12 @@
 package com.example.web.Model;
 
+import java.util.List;
+
 public class User {
     private int id;
     private String userName;
     private String password;
+    private List<Country> myCountryList;
 
     public User(String userName, String password) {
         this.userName = userName;
@@ -32,5 +35,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Country> getMyCountryList() {
+        return myCountryList;
+    }
+
+    public void setMyCountryList(List<Country> myCountryList) {
+        this.myCountryList = myCountryList;
     }
 }

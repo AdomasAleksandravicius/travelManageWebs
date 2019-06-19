@@ -20,7 +20,7 @@ public class LoginController {
     public String index(HttpSession session){
 
         if(session.getAttribute("user") !=null ){
-            return "redirect:/countries";
+            return "/countries";
         }
         return "/login";
     }
@@ -31,7 +31,7 @@ public class LoginController {
         for(User user:this.dataProvider.usersList){
             if (user.getUserName().equals(email) && user.getPassword().equals(password)){
                 session.setAttribute("user",user);
-                return "redirect:/countries";
+                return "/countries";
             }
 
         }

@@ -15,12 +15,16 @@ public class DataProvider {
     public static  List<City> cityList;
     public static Map<String,Country> countryMap;
     public static List<User> usersList;
+    public static List<Country> myCountryList;
+    public static Map<Integer,List<Country>> myTripMap;
 
     static {
         countryMap = new HashMap<>();
         countryList = new ArrayList<>();
         cityList = new ArrayList<>();
         usersList = new ArrayList<>();
+        myCountryList = new ArrayList<>();
+        myTripMap = new HashMap<>();
 
         //countryList = new ArrayList<>();
 
@@ -71,6 +75,25 @@ public class DataProvider {
         }
 
         return null;
+    }
+
+    public static void addMyList(int userId,Country country){
+
+        if(myTripMap.containsKey(userId)){
+            myTripMap.get(userId).add(country);
+        }else{
+            List<Country> myCou = new ArrayList<>();
+            myCou.add(country);
+            myTripMap.put(userId,myCou);
+        }
+    }
+
+    public static List<Country> getMyCountryList(int userId){
+        if (myTripMap.containsKey(userId)){
+            return myTripMap.get(userId);
+        }else{
+            return null;
+        }
     }
 
 

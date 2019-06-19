@@ -32,29 +32,7 @@ public class DataProvider {
         User user = new User("adomas","labas123");
         usersList.add(user);
 
-        Country australia = new Country(null,"Australia","daug visokiu zodziu apie sia sali", "australia.png");
-        City viena = new City("Viena","kalnas, kepure,namas");
-        cityList.add(viena);
-        australia.setCities(cityList);
-        countryMap.put("2", australia);
 
-        Country austria = new Country(null,"Austria","noriu noriu", "austria.png");
-        City viena1 = new City("Viena1","kalnas, kepure,namas");
-        cityList.add(viena1);
-        austria.setCities(cityList);
-        countryMap.put("3", austria);
-
-        Country brazil = new Country(null,"Brazil","Very big country, very hot one too", "brazil.png");
-        City sanPaulo = new City("San Paulo","A lot of bueatiful places ");
-        cityList.add(sanPaulo);
-        brazil.setCities(cityList);
-        countryMap.put("4", brazil);
-
-        Country bulgaria = new Country(null,"austria","Very big country, very hot one too", "bulgaria.png");
-        City sofia = new City("Sofia","A lot of bueatiful places ");
-        cityList.add(sofia);
-        bulgaria.setCities(cityList);
-        countryMap.put("5", bulgaria);
 
     }
 

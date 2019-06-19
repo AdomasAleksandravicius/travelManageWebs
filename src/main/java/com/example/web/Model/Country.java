@@ -13,12 +13,11 @@ public class Country {
     public Country() {
     }
 
-    public Country(String id ,String name, String description,String imgSt) {
+    public Country(String id ,String name, String description) {
 
         if (id == null){
             id = UUID.randomUUID().toString();
         }
-        this.imgString = imgSt;
         this.id = id;
         this.name = name;
         this.description = description;

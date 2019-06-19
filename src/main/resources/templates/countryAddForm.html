@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/layout.css}" type="text/css">
+</head>
+<body>
+<form action="/countryAddForm"  method="post">
+    <div class="container">
+        <label ><b>Country Name</b></label>
+        <input type="text" placeholder="Enter Country Name" name="name" required>
+
+        <label><b>Country Description</b></label>
+        <input type="text" placeholder="Enter Description" name="description" required>
+
+        <label><b>City name</b></label>
+        <input type="text" placeholder="Enter City Name" name="cityName">
+
+        <label><b>Places to Visit</b></label>
+        <input type="text" placeholder="Enter Places" name="places">
+        <button  type="submit">Save</button>
+
+    </div>
+
+</form>
+</body>
+</html>

@@ -12,6 +12,7 @@ import javax.servlet.ServletContext;
 @Controller
 @RequestMapping("/index")
 public class IndexController {
+
     @GetMapping(path = "")
     public String greeting(Model model){
         model.addAttribute("greeting","Hello");

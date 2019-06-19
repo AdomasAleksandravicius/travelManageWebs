@@ -8,6 +8,7 @@ public class User {
     private String password;
     private List<Country> myCountryList;
 
+
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;

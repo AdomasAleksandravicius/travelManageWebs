@@ -1,0 +1,14 @@
+{
+  "countries": [
+    {
+      "id" : "0",
+      "name" : "Lithuania",
+      "description" : "Long description"
+    },
+    {
+      "id" : "1",
+      "name" : "Australia",
+      "description" : "Long description"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 package com.example.web.Controller;
 
+import com.example.web.DataProvider.DataProvider;
 import com.example.web.Model.City;
 import com.example.web.Model.Country;
 import com.example.web.Model.User;
@@ -9,9 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.servlet.http.HttpSession;
+
 @Controller
+@RequestMapping("/countries")
 public class CountryController {
 
     @PostMapping("/countryAddForm")
@@ -38,5 +40,11 @@ public class CountryController {
     public String addForm(Model model){
         model.addAttribute("greeting","Hello");
         return "countryAddForm";
+    }
+
+    @GetMapping(path = "")
+    public String countries(Model model) {
+        model.addAttribute("countries", DataProvider.getCountryList());
+        return "countries";
     }
 }

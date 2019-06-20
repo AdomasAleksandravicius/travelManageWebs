@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<div class="wrapper row1">
+    <header id="header" class="clear">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/css/layout.css}" type="text/css">
+        <link rel="stylesheet" th:href="@{/css/utils.css}" type="text/css">
+        <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css">
+        <div id="hgroup">
+            <h1><a href="#">Travel Manager</a></h1>
+            <h2>Travel for free almost</h2>
+        </div>
+        <nav>
+            <ul>
+                <li th:href="@{/}">Home Page</li>
+                <li><a th:href="@{/myTripList}">My Trips</a></li>
+                <li class="last"><a>Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<body>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" th:href="${'/country-edit' + country.getId()}"  th:object="${country}" method="post">
+                <span class="login100-form-title p-b-34 p-t-27">
+						Edit Trip
+					</span>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" th:placeholder="${country.name}" name="name">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <textarea th:placeholder="${country.description}" class="input100" name="description" rows="10" cols="30"></textarea>
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
+                <div th:each="city : ${cities}">
+
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" th:placeholder="${city.name}" name="cityName">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <input class="input100" type="text" th:placeholder="${city.district}" name="places">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button  type="submit" style="color : white">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</body>
+</html>

@@ -3,25 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/layout.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/utils.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css">
 </head>
+
 <body>
-<form action="/countryAddForm"  method="post">
-    <div class="container">
-        <label ><b>Country Name</b></label>
-        <input type="text" placeholder="Enter Country Name" name="name" required>
+<div class="wrapper row1">
+    <header id="header" class="clear">
+        <div id="hgroup">
+            <h1><a href="#">Travel Manager</a></h1>
+            <h2>Travel for free almost</h2>
+        </div>
+        <nav>
+            <ul>
+                <li th:href="@{/}">Home Page</li>
+                <li><a th:href="@{/myTripList}">My Trips</a></li>
+                <li class="last"><a>Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" action="/countryAddForm"  method="post">
+                <span class="login100-form-title p-b-34 p-t-27">
+						Edit trip
+					</span>
 
-        <label><b>Country Description</b></label>
-        <input type="text" placeholder="Enter Description" name="description" required>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" placeholder="Enter Country Name" name="name">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                </div>
 
-        <label><b>City name</b></label>
-        <input type="text" placeholder="Enter City Name" name="cityName">
+                <div class="wrap-input100 validate-input">
+                    <textarea placeholder="Description" class="input100" name="description" rows="10" cols="30"></textarea>
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
 
-        <label><b>Places to Visit</b></label>
-        <input type="text" placeholder="Enter Places" name="places">
-        <button  type="submit">Save</button>
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" placeholder="Enter City Name" name="cityName">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
 
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" placeholder="Enter Visited Places" name="places">
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button  type="submit" style="color : white">Save</button>
+                </div>
+            </form>
+        </div>
     </div>
-
-</form>
+</div>
 </body>
 </html>

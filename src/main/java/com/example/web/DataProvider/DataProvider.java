@@ -91,6 +91,19 @@ public class DataProvider {
         }
     }
 
+    public static Country getCountryById(String id,int userId){
+        if (myTripMap.containsKey(userId)){
+            List<Country> countries = myTripMap.get(userId);
+            for (Country country:countries){
+                if (country.getId().equals(id)){
+                    return country;
+
+                }
+            }
+        }
+        return null;
+    }
+
 
 
     public static void replaceCountry(String key, Country country){

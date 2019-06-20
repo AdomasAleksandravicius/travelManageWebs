@@ -133,6 +133,18 @@ public class DataProvider {
         return country;
     }
 
+    public static List<Country> findCountries(String query) {
+
+        List<Country> searchResults = new ArrayList<>();
+
+        for (Country country : countryList) {
+            if (country.getName().toLowerCase().contains(query.toLowerCase()) || country.getDescription().toLowerCase().contains(query.toLowerCase())){
+                searchResults.add(country);
+            }
+        }
+        return searchResults;
+    }
+
     public static List<Country> getCountryList() {
         return countryList;
     }

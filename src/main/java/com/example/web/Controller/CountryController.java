@@ -49,4 +49,10 @@ public class CountryController {
         model.addAttribute("countries", DataProvider.getCountryList());
         return "countries";
     }
+
+    @GetMapping("/search")
+    public String search(Model model, @RequestParam(defaultValue = "", value = "search") String search) {
+        model.addAttribute("countries", DataProvider.findCountries(search));
+        return "countries";
+    }
 }

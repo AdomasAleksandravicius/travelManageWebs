@@ -28,7 +28,7 @@
         <div id="homepage">
             <!-- Services -->
             <div class="search-container">
-                <form method="get">
+                <form th:action="@{'http://localhost:8080/countries/search'}" method="get">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit">Submit<i class="fa fa-search"></i></button>
                 </form>

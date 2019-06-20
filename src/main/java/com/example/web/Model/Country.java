@@ -1,5 +1,6 @@
 package com.example.web.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +22,7 @@ public class Country {
         this.id = id;
         this.name = name;
         this.description = description;
+        cities=new ArrayList<>();
     }
 
     public String getImgString() {

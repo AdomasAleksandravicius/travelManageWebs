@@ -21,24 +21,26 @@ public class CountryController {
                         @RequestParam("description") String description,
                              @RequestParam("cityName") String cityName,
                              @RequestParam("places") String places, Model model,HttpSession session){
-        User user = (User) session.getAttribute("user");
-        Country country = new Country(null,name,description);
-        City city = new City(cityName,places);
-        country.addCity(city);
+        if (session != null){
 
-            if (country != null){
+            User user = (User) session.getAttribute("user");
+            Country country = new Country(null,name,description);
+            City city = new City(cityName,places);
+            country.addCity(city);
+            DataProvider.addMyList(user.getId(),country);
+           return "redirect:/myTripList";
+        }else{
 
-                return "/myCountryList";
-            }
+            model.addAttribute("error","Add Country");
+            return "/countryAddForm";
+        }
 
 
-        model.addAttribute("error","Add Country");
-        return "/countryAddForm";
     }
+
 
     @GetMapping(path = "/countryAddForm")
     public String addForm(Model model){
-        model.addAttribute("greeting","Hello");
         return "countryAddForm";
     }
 

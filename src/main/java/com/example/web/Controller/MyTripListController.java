@@ -1,24 +1,28 @@
 package com.example.web.Controller;
 
 import com.example.web.DataProvider.DataProvider;
+import com.example.web.Model.City;
+import com.example.web.Model.Country;
 import com.example.web.Model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Controller
 @RequestMapping("/myTripList")
 public class MyTripListController {
 
-
-    @GetMapping(path = "")
-    public String greeting(Model model, HttpSession session){
+    @GetMapping(value = "")
+    public String processForm(String q, Model model,HttpSession session) {
         User user = (User) session.getAttribute("user");
-        model.addAttribute("myTripList", DataProvider.getMyCountryList(user.getId()));
+        List<Country> newList = DataProvider.getMyCountryList(user.getId());
+        model.addAttribute("myTripList", newList);
+        System.out.println(newList);
         return "myTripList";
     }
+
 }

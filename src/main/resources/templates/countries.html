@@ -28,21 +28,23 @@
         <div id="homepage">
             <!-- Services -->
             <div class="search-container">
-                <form method="get">
+                <form th:action="@{'http://localhost:8080/countries/search'}" method="get">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit">Submit<i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <table style="width:100%"  th:each="country : ${countries}">
+            <table style="width:100%" th:each="country : ${countries}">
                 <tr>
                     <div class="card">
-                        <img style="float: left; margin: 0px 15px 15px 0px;" th:src="@{/images/home.jpg}" width="290" height="180" alt="">
+                        <img style="float: left; margin: 0px 15px 15px 0px;" th:src="@{/images/home.jpg}" width="290"
+                             height="180" alt="">
                         <div class="card-container">
                             <h4><b th:text="${country.name}"></b></h4>
                             <div class="block-with-text">
                                 <p th:text="${country.description}"></p>
                             </div>
-                            <footer class="more"><a href="#">Read More &raquo;</a></footer>
+                            <footer class="more"><a th:href="@{country_details/(countryId=${country.id})}">Read More &raquo;</a></footer>
+                            <footer class="more"><a th:href="@{countries/add-country-to-my-List/(countryId=${country.id})}">Add To List &raquo;</a></footer>
                         </div>
                     </div>
                 </tr>
@@ -56,7 +58,7 @@
     <footer id="copyright" class="clear">
         <p class="fl_left">Copyright &copy; 2019 - All Rights Reserved - <a href="#">Travel manager app</a></p>
         <p class="fl_right"><a target="_blank" href="https://www.google.com/"
-                                           title="Travel Manager">Travel Manager</a></p>
+                               title="Travel Manager">Travel Manager</a></p>
     </footer>
 </div>
 </body>

@@ -6,10 +6,8 @@ import com.example.web.Model.Country;
 import com.example.web.Model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -40,6 +38,17 @@ public class CountryController {
 
     }
 
+    @RequestMapping(value = "/add-country-to-my-List", method = RequestMethod.GET)
+    public String addCountryToMyList(@RequestParam(name="countryId")String countryId,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        Country country = DataProvider.getCountry(countryId);
+        System.out.println(countryId);
+        DataProvider.addMyList(user.getId(),country);
+
+        return "redirect:/countries";
+
+    }
+
 
     @GetMapping(path = "/countryAddForm")
     public String addForm(Model model){
@@ -49,6 +58,12 @@ public class CountryController {
     @GetMapping(path = "")
     public String countries(Model model) {
         model.addAttribute("countries", DataProvider.getCountryList());
+        return "countries";
+    }
+
+    @GetMapping("/search")
+    public String search(Model model, @RequestParam(defaultValue = "", value = "search") String search) {
+        model.addAttribute("countries", DataProvider.findCountries(search));
         return "countries";
     }
 }

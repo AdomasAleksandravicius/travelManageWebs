@@ -5,44 +5,35 @@ import com.example.web.DataProvider.DataProvider;
 import com.example.web.Model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
-    private DataProvider dataProvider = new DataProvider();
 
-    public String index(HttpSession session){
+    @PostMapping("/login")
+    public String login(@RequestParam("email") String email,
+                        @RequestParam("password") String password,
+                        HttpServletResponse response,
+                        HttpSession session, Model model) {
 
-        if(session.getAttribute("user") !=null ){
-            return "countries";
-        }
-        return "/login";
-    }
+        for (User user : DataProvider.usersList) {
+            if (user.getUserName().equals(email) && user.getPassword().equals(password)) {
+                session.setAttribute("user", user);
 
-    @PostMapping("")
-    public String login(@RequestParam("email")String email,
-                        @RequestParam("password") String password, HttpSession session, Model model){
-        for(User user:this.dataProvider.usersList){
-            if (user.getUserName().equals(email) && user.getPassword().equals(password)){
-                session.setAttribute("user",user);
-                return "redirect:/countries";
+                Cookie cookie = new Cookie("loggedIn", user.getUserName());
+                cookie.setPath("/");
+                response.addCookie(cookie);
+                return "/countries";
             }
-
         }
-        model.addAttribute("error","User email is not valid");
+        model.addAttribute("error", "User email is not valid");
         return "/login";
     }
 
-    @GetMapping(path = "")
-    public String greeting(Model model){
-        model.addAttribute("greeting","Hello");
+    @GetMapping(path = "/login")
+    public String login() {
         return "login";
     }
-
 }

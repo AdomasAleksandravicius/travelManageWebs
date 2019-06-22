@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
-    private DataProvider dataProvider = new DataProvider();
 
     @GetMapping("")
     public String index(HttpSession session){
@@ -21,9 +20,8 @@ public class RegisterController {
     }
     @PostMapping("")
     public String addUser(User user, HttpSession session){
-        this.dataProvider.addUser(user);
+        DataProvider.addUser(user);
         session.setAttribute("user",user);
         return "countries";
     }
-
 }

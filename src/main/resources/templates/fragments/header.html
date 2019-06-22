@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<header id="header" class="clear" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div id="hgroup">
+        <h1><a href="#">Travel Manager</a></h1>
+        <h2>Travel for free almost</h2>
+    </div>
+    <nav th:if="${user != null}">
+            <ul>
+                <li><a th:href="@{/countries}">My Countries</a></li>
+                <li class="last"><a href="#">Logout</a></li>
+            </ul>
+    </nav>
+
+    <nav th:unless="${user != null}">
+        <ul>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li class="last"><a th:href="@{/register}">Register</a></li>
+        </ul>
+    </nav>
+</header>

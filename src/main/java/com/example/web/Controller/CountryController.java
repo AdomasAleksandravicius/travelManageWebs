@@ -24,8 +24,6 @@ public class CountryController {
             User user = (User) session.getAttribute("user");
             Country country = new Country(null,name,description);
             City city = new City(cityName,places);
-            System.out.println(country);
-            System.out.println(city);
             country.addCity(city);
             DataProvider.addMyList(user.getId(),country);
            return "redirect:/myTripList";
@@ -48,7 +46,6 @@ public class CountryController {
         return "redirect:/countries";
 
     }
-
 
     @GetMapping(path = "/countryAddForm")
     public String addForm(Model model){

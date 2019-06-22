@@ -8,18 +8,7 @@
 </head>
 <body>
 <div class="wrapper row1">
-    <header id="header" class="clear">
-        <div id="hgroup">
-            <h1><a href="#">Travel Manager</a></h1>
-            <h2>Travel for free almost</h2>
-        </div>
-        <nav>
-            <ul>
-                <li><a th:href="@{/login}">Login</a></li>
-                <li class="last"><a th:href="@{/register}">Register</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header th:insert="fragments/header.html :: header"></header>
 </div>
 <!-- content -->
 <div class="index-body">
@@ -33,7 +22,7 @@
     <footer id="copyright" class="clear">
         <p class="fl_left">Copyright &copy; 2019 - All Rights Reserved - <a href="#">Travel manager app</a></p>
         <p class="fl_right"><a target="_blank" href="https://www.google.com/"
-                                           title="Travel Manager">Travel Manager</a></p>
+                               title="Travel Manager">Travel Manager</a></p>
     </footer>
 </div>
 </body>

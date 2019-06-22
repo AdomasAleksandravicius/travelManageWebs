@@ -21,7 +21,6 @@ public class MyTripListController {
         User user = (User) session.getAttribute("user");
         List<Country> newList = DataProvider.getMyCountryList(user.getId());
         model.addAttribute("myTripList", newList);
-        System.out.println(newList);
         return "myTripList";
     }
 

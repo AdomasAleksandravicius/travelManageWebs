@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.example.web.iml" filepath="$PROJECT_DIR$/.idea/modules/com.example.web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.example.web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.example.web.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.example.web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.example.web.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/travelManageWebs.iml" filepath="$PROJECT_DIR$/.idea/travelManageWebs.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/web.iml" filepath="$PROJECT_DIR$/.idea/modules/web.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/web.main.iml" />

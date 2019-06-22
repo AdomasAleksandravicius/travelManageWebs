@@ -20,8 +20,6 @@ public class CountryEditController {
         User user = (User) session.getAttribute("user");
         Country country = DataProvider.getCountryById(id,user.getId());
         List<City> cities = country.getCities();
-        System.out.println(cities);
-        System.out.println(country);
         model.addAttribute("country",country);
         model.addAttribute("cities",cities);
 
@@ -37,12 +35,33 @@ public class CountryEditController {
                          @RequestParam("places") String places, @PathVariable String id,HttpSession session){
         User user = (User) session.getAttribute("user");
         Country country = DataProvider.getCountryById(id,user.getId());
-        country.setName(name);
-        country.setDescription(description);
+        if (name == ""){
+            country.setName(country.getName());
+        }else{
+            country.setName(name);
+        }
+
+        if (description == ""){
+            country.setDescription(country.getDescription());
+        }else{
+
+            country.setDescription(description);
+        }
         List<City> cities = country.getCities();
         City city = cities.get(0);
-        city.setName(cityName);
-        city.setDistrict(places);
+        if (cityName == ""){
+            city.setName(city.getName());
+        }else{
+
+            city.setName(cityName);
+        }
+
+        if (places == ""){
+            city.setDistrict(city.getDistrict());
+        }else{
+
+            city.setDistrict(places);
+        }
 
         return "redirect:/myTripList";
     }

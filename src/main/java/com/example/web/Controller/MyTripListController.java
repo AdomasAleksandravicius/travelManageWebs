@@ -21,8 +21,15 @@ public class MyTripListController {
         User user = (User) session.getAttribute("user");
         List<Country> newList = DataProvider.getMyCountryList(user.getId());
         model.addAttribute("myTripList", newList);
-        System.out.println(newList);
         return "myTripList";
+    }
+
+    @GetMapping(value = "/delete")
+    public String delete(@RequestParam(name="countryId")String countryId,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        DataProvider.deleteCountryFromList(user.getId(),countryId);
+
+        return "redirect:/myTripList";
     }
 
 }

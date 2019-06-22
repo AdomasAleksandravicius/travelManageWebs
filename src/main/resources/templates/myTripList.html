@@ -15,8 +15,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">My Countries</a></li>
-                <li class="last"><a href="#">Logout</a></li>
+                <li><a th:href="@{/countries}">Country List</a></li>
+                <li class="last"><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -42,11 +42,14 @@
                                 <p th:text="${country.description}"></p>
                             </div>
                             <a th:href="${'country-edit/' + country.getId()}">Edit Country</a>
+                            <a th:href="${'myTripList/delete/' + country.getId()}">Delete Country</a>
                             <footer class="more"><a href="#">Read More &raquo;</a></footer>
                         </div>
                     </div>
                 </tr>
             </table>
+
+            <a th:href="${'/countries/countryAddForm'}">Add Country</a>
         </div>
         <!-- / content body -->
     </div>

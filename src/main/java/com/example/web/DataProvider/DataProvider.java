@@ -104,6 +104,18 @@ public class DataProvider {
         return null;
     }
 
+    public static void deleteCountryFromList(int userId,String countryId){
+        if (myTripMap.containsKey(userId)){
+            List<Country> countries = myTripMap.get(userId);
+            for (Country country:countries){
+                if (country.getId().equals(countryId)){
+                    countries.remove(country);
+
+                }
+            }
+        }
+    }
+
 
     public static Country getCountry(String countryId) {
         for (Country country : countryList) {

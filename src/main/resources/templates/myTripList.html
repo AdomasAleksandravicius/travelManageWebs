@@ -43,10 +43,14 @@
                             </div>
                             <a th:href="${'country-edit/' + country.getId()}">Edit Country</a>
                             <a th:href="${'myTripList/delete/' + country.getId()}">Delete Country</a>
-                            <footer class="more"><a th:href="@{country_details/(countryId=${country.id})}">Read More &raquo;</a></footer>
+                            <footer class="more"><a href="#">Read More &raquo;</a></footer>
                         </div>
                     </div>
                 </tr>
+                <form th:if="${country != null}" th:action="@{myTripList/delete/(id=${country.id})}"  method="post">
+
+                    <input class="more" type="submit" value="Delete">
+                </form>
             </table>
 
             <a th:href="${'/countries/countryAddForm'}">Add Country</a>

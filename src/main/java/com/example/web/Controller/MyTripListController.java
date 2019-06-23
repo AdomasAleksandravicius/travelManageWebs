@@ -24,10 +24,11 @@ public class MyTripListController {
         return "myTripList";
     }
 
-    @GetMapping(value = "/delete")
-    public String delete(@RequestParam(name="countryId")String countryId,HttpSession session){
+    @PostMapping(value = "/delete/{id}")
+    public String delete(HttpSession session, @PathVariable String id){
         User user = (User) session.getAttribute("user");
-        DataProvider.deleteCountryFromList(user.getId(),countryId);
+        System.out.println("labas");
+        DataProvider.deleteCountryFromList(user.getId(),id);
 
         return "redirect:/myTripList";
     }

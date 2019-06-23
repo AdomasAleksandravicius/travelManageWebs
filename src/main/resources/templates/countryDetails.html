@@ -15,8 +15,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Login</a></li>
-                <li class="last"><a href="#">Register</a></li>
+                <li th:href="@{/}">Home Page</li>
+                <li><a th:href="@{/myTripList}">My Countries</a></li>
+                <li class="last"><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </nav>
     </header>

@@ -7,14 +7,14 @@
         <link rel="stylesheet" th:href="@{/css/utils.css}" type="text/css">
         <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css">
         <div id="hgroup">
-            <h1><a href="#">Travel Manager</a></h1>
+            <h1><a th:href="@{/}">Travel Manager</a></h1>
             <h2>Travel for free almost</h2>
         </div>
         <nav>
             <ul>
                 <li th:href="@{/}">Home Page</li>
                 <li><a th:href="@{/myTripList}">My Trips</a></li>
-                <li class="last"><a>Log out</a></li>
+                <li class="last"><a th:href="@{/logout}">Log out</a></li>
             </ul>
         </nav>
     </header>

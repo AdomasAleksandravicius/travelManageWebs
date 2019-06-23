@@ -10,7 +10,6 @@ public class Country {
     private String name;
     private String description;
     private List<City> cities;
-    private int travelTime;
     public Country() {
     }
 
@@ -62,13 +61,6 @@ public class Country {
         return cities;
     }
 
-    public int getTravelTime() {
-        return travelTime;
-    }
-
-    public void setTravelTime(int travelTime) {
-        this.travelTime = travelTime;
-    }
 
     public List<City> returnCities(){
 

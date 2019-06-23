@@ -4,10 +4,13 @@ import com.example.web.DataProvider.DataProvider;
 import com.example.web.Model.City;
 import com.example.web.Model.Country;
 import com.example.web.Model.User;
+import com.example.web.exceptions.CountryExceptions;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -16,14 +19,22 @@ import java.util.List;
 public class CountryEditController {
 
     @GetMapping(path = "/{id}")
-    public String edit(@PathVariable(name = "id") String id, Model model, HttpSession session){
+    public String edit(@PathVariable(name = "id") String id, Model model, HttpSession session,HttpServletResponse response){
         User user = (User) session.getAttribute("user");
         Country country = DataProvider.getCountryById(id,user.getId());
         List<City> cities = country.getCities();
         model.addAttribute("country",country);
         model.addAttribute("cities",cities);
+        if (country != null){
 
-        return "editing-country";
+            return "editing-country";
+        }
+
+        CountryExceptions countryExceptions = new CountryExceptions(HttpStatus.NOT_FOUND,
+                "Country was not found");
+        model.addAttribute("errormessage", countryExceptions);
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        return "/exceptions/country-exception-error-page.html";
 
     }
 

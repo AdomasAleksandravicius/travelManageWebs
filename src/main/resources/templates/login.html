@@ -16,29 +16,25 @@
 					</span>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" placeholder="Enter Email" name="email">
+                    <input class="input100" type="text" placeholder="Enter Email" name="email" required>
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input">
-                    <input placeholder="Enter your Password" type="password" class="input100" name="password" rows="10" cols="30">
+                    <input placeholder="Enter your Password" type="password" class="input100" name="password" rows="10" cols="30" required>
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button  type="submit" style="color : white">Login</button>
+                    <button  type="submit" th:value="Login" style="color : white">Login</button>
                 </div>
-                <div>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-        </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
             </form>
+            <div class="container" style="background-color:#f1f1f1">
+                <div th:if="${errormessage}">
+                    <div th:text="${errormessage}" style="color: white">Error message</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

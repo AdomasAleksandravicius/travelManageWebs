@@ -14,7 +14,7 @@ public class RegisterController {
     @GetMapping("")
     public String index(HttpSession session){
         if(session.getAttribute("user") !=null ){
-            return "/countries";
+            return "redirect:/countries";
         }
         return "/register";
     }
@@ -22,6 +22,6 @@ public class RegisterController {
     public String addUser(User user, HttpSession session){
         DataProvider.addUser(user);
         session.setAttribute("user",user);
-        return "countries";
+        return "redirect:/countries";
     }
 }

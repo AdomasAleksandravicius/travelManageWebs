@@ -26,7 +26,7 @@
 
     <div class="wrapper row2">
         <div id="container" class="clear" th:object="${country}">
-            <section id="slider"><img th:src="@{/images/home.jpg}" style="max-width:960px; max-height:360px;" alt="">
+            <section id="slider"><img th:src="${country.imgString}" style="max-width:960px; max-height:360px;" alt="">
             </section>
             <section id="intro" class="last clear">
                 <article>

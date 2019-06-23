@@ -36,7 +36,7 @@
             <table style="width:100%" th:each="country : ${countries}">
                 <tr>
                     <div class="card">
-                        <img style="float: left; margin: 0px 15px 15px 0px;" th:src="@{/images/home.jpg}" width="290"
+                        <img style="float: left; margin: 0px 15px 15px 0px;" th:src="${country.imgString}" width="290"
                              height="180" alt="">
                         <div class="card-container">
                             <h4><b th:text="${country.name}"></b></h4>

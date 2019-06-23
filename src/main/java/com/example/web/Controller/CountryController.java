@@ -22,7 +22,7 @@ public class CountryController {
         if (session != null){
 
             User user = (User) session.getAttribute("user");
-            Country country = new Country(null,name,description);
+            Country country = new Country(null,name,description, "");
             City city = new City(cityName,places);
             country.addCity(city);
             DataProvider.addMyList(user.getId(),country);

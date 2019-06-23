@@ -35,7 +35,7 @@
             <table style="width:100%"  th:each="country : ${myTripList}">
                 <tr>
                     <div class="card">
-                        <img style="float: left; margin: 0px 15px 15px 0px;" th:src="@{/images/home.jpg}" width="290" height="180" alt="">
+                        <img style="float: left; margin: 0px 15px 15px 0px;" th:src="${country.imgString}" width="290" height="180" alt="">
                         <div class="card-container">
                             <h4><b th:text="${country.name}"></b></h4>
                             <div class="block-with-text">
@@ -43,7 +43,7 @@
                             </div>
                             <a th:href="${'country-edit/' + country.getId()}">Edit Country</a>
                             <a th:href="${'myTripList/delete/' + country.getId()}">Delete Country</a>
-                            <footer class="more"><a href="#">Read More &raquo;</a></footer>
+                            <footer class="more"><a th:href="@{country_details/(countryId=${country.id})}">Read More &raquo;</a></footer>
                         </div>
                     </div>
                 </tr>

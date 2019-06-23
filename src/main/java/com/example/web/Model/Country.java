@@ -14,7 +14,7 @@ public class Country {
     public Country() {
     }
 
-    public Country(String id ,String name, String description) {
+    public Country(String id ,String name, String description, String image) {
 
         if (id == null){
             id = UUID.randomUUID().toString();
@@ -22,6 +22,7 @@ public class Country {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.imgString = image;
         cities=new ArrayList<>();
     }
 

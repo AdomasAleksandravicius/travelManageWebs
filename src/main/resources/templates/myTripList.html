@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </tr>
-                <form th:if="${country != null}" th:action="@{myTripList/delete/(id=${country.id})}"  method="post">
+                <form th:if="${country != null}" th:action="@{'http://localhost:8080/myTripList/delete/id=' + ${country.id}}"  method="post">
 
                     <input class="more" type="submit" value="Delete">
                 </form>

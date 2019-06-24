@@ -14,6 +14,17 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/countries")
 public class CountryController {
 
+    /**
+     * Countries controller
+     *
+     * @param name    country name
+     * @param description country description
+     * @param cityName citi Name
+     * @param places city most visited places
+     * @param session  user attribute
+     * @param model    error message
+     * @return country add form, country list
+     */
     @PostMapping("/countryAddForm")
     public String addCountry(@RequestParam("name")String name,
                         @RequestParam("description") String description,
@@ -40,7 +51,6 @@ public class CountryController {
     public String addCountryToMyList(@RequestParam(name="countryId")String countryId,HttpSession session){
         User user = (User) session.getAttribute("user");
         Country country = DataProvider.getCountry(countryId);
-        System.out.println(countryId);
         DataProvider.addMyList(user.getId(),country);
 
         return "redirect:/countries";
@@ -48,7 +58,7 @@ public class CountryController {
     }
 
     @GetMapping(path = "/countryAddForm")
-    public String addForm(Model model){
+    public String addForm(){
 
         return "countryAddForm";
     }

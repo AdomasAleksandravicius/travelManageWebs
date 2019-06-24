@@ -10,11 +10,19 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
+    /**
+     * Returns register index page
+     *
+     * @param session the current session
+     * @return register.html
+     */
 
     @GetMapping("")
     public String index(HttpSession session){
         if(session.getAttribute("user") !=null ){
+            System.out.println("labas");
             return "redirect:/countries";
+
         }
         return "/register";
     }

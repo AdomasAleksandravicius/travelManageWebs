@@ -26,8 +26,11 @@ public class DataProvider {
         myCountryList = new ArrayList<>();
         myTripMap = new HashMap<>();
 
-        User user = new User("adomas", "labas123");
-        usersList.add(user);
+        User adomas = new User("adomas", "Labas123");
+        usersList.add(adomas);
+
+        User tadas  = new User("tadas","Krevetes123");
+        usersList.add(tadas);
 
         prepopulateDataSet();
 
@@ -38,16 +41,6 @@ public class DataProvider {
         usersList.add(user);
     }
 
-    public static String getString(Country currentCountry) {
-
-        for (String currentVal : countryMap.keySet()) {
-            if (countryMap.get(currentVal).getName().contains(currentCountry.getName())) {
-                return currentVal;
-            }
-        }
-
-        return null;
-    }
 
     public static void addMyList(int userId, Country country) {
 
@@ -105,24 +98,6 @@ public class DataProvider {
         return null;
     }
 
-    public static void replaceCountry(String key, Country country) {
-        countryMap.remove(key);
-        countryMap.put(key, country);
-    }
-
-    public static void addItem(Country country) {
-        countryMap.put(country.getId(), country);
-    }
-
-    public static Country findCountry(String id) {
-        Country country = null;
-        for (int i = 0; i < countryMap.size(); i++) {
-            if (id.equals(countryMap.get(i).getId())) {
-                country = countryMap.get(i);
-            }
-        }
-        return country;
-    }
 
     public static List<Country> findCountries(String query) {
 

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/layout.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{/css/utils.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css">
 </head>
 
@@ -16,7 +15,7 @@
         </div>
         <nav>
             <ul>
-                <li th:href="@{/}">Home Page</li>
+                <li><a th:href="@{/}">Home Page</a></li>
                 <li><a th:href="@{/myTripList}">My Trips</a></li>
                 <li class="last"><a th:href="@{/logout}">Log out</a></li>
             </ul>

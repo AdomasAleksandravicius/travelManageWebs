@@ -31,7 +31,7 @@ public class MyTripListController {
         String formattedId = id.replace("id=", "");
         DataProvider.deleteCountryFromList(user.getId(),formattedId);
 
-        return "myTripList";
+        return "redirect:/myTripList";
     }
 
 }

@@ -9,17 +9,9 @@
 <body>
 <div class="wrapper row1">
     <header id="header" class="clear">
-        <div id="hgroup">
-            <h1><a href="#">Travel Manager</a></h1>
-            <h2>Travel for free almost</h2>
+        <div class="wrapper row1">
+            <header th:insert="fragments/header.html :: header"></header>
         </div>
-        <nav>
-            <ul>
-                <li th:href="@{/}">Home Page</li>
-                <li><a th:href="@{/myTripList}">My Countries</a></li>
-                <li class="last"><a th:href="@{/logout}">Logout</a></li>
-            </ul>
-        </nav>
     </header>
 </div>
 <!-- content -->

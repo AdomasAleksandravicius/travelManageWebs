@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/layout.css}" type="text/css">
-    <link rel="stylesheet" th:href="@{/css/utils.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css">
 </head>
 <body>
@@ -28,11 +27,14 @@
                 <div class="container-login100-form-btn">
                     <button  type="submit" th:value="Login" style="color : white">Login</button>
                 </div>
+                <div class="container-login100-form-btn">
+                    <a th:href="@{'/register'}">register new account</a>
+                </div>
 
             </form>
             <div class="container" style="background-color:#f1f1f1">
                 <div th:if="${errormessage}">
-                    <div th:text="${errormessage}" style="color: white">Error message</div>
+                    <div th:text="${errormessage}">Error message</div>
                 </div>
             </div>
         </div>

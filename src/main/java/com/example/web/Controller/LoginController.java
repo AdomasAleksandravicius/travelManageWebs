@@ -36,11 +36,14 @@ public class LoginController {
                 cookie.setPath("/");
                 response.addCookie(cookie);
                 return "redirect:/countries";
+            }else if (!user.getUserName().equals(email) || !user.getPassword().equals(password)){
+                model.addAttribute("errormessage",
+                        "Username or Password is not valid please re-enter!");
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
         }
-        model.addAttribute("errormessage",
-                "Username or Password is not valid please re-enter!");
-        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+
+
         return "login";
     }
 
